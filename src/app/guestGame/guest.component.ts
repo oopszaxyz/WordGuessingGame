@@ -8,7 +8,6 @@ import { Library } from '../Library';
 })
 export class GuestGameComponent implements OnInit {
   start = false;
-  ans2 = '';
 
   question = Library[Math.floor(Math.random() * Library.length)];
   answer1 = Library[Math.floor(Math.random() * Library.length)];
