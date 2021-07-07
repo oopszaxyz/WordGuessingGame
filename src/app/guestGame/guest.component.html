@@ -1,0 +1,22 @@
+<h1>Guessing Game</h1>
+<hr />
+
+<div class="question">
+  <div class="score">
+    <span> Score = {{ Score }} </span>
+  </div>
+  <h2 style="font-size: 40px">{{ question.word }}</h2>
+  <h4 style="font-size: 25px">{{ question.spell }}</h4>
+</div>
+
+<div class="guestbutt">
+  <button id="1" (click)="setCheckClick1(); checkAnswer()">
+    {{ butt[0].meaning }}
+  </button>
+  <button id="2" (click)="setCheckClick2(); checkAnswer()">
+    {{ butt[1].meaning }}
+  </button>
+  <button id="3" (click)="setCheckClick3(); checkAnswer()">
+    {{ butt[2].meaning }}
+  </button>
+</div>
