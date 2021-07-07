@@ -27,7 +27,7 @@ export class GuestGameComponent implements OnInit {
   }
 
   gamestart() {
-    this.checkNull();
+    /*this.checkNull();*/
     this.checkChoice();
     this.shuffle();
   }
@@ -51,20 +51,40 @@ export class GuestGameComponent implements OnInit {
 
   checkChoice() {
     while (true) {
-      if (this.question.word == this.answer1.word) {
+      if (
+        this.question.word == null ||
+        this.question.spell == null ||
+        this.question.meaning == null
+      ) {
+        this.question = Library[Math.floor(Math.random() * Library.length)];
+      } else if (
+        this.answer1.word == null ||
+        this.answer1.spell == null ||
+        this.answer1.meaning == null
+      ) {
+        this.answer1 = Library[Math.floor(Math.random() * Library.length)];
+      } else if (
+        this.answer2.word == null ||
+        this.answer2.spell == null ||
+        this.answer2.meaning == null
+      ) {
+        this.answer2 = Library[Math.floor(Math.random() * Library.length)];
+      } else if (this.question.word == this.answer1.word) {
         this.answer1 = Library[Math.floor(Math.random() * Library.length)];
       } else if (this.question.word == this.answer2.word) {
         this.answer2 = Library[Math.floor(Math.random() * Library.length)];
       } else if (
         this.question.word != this.answer1.word &&
-        this.question.word != this.answer2.word
+        this.question.word != this.answer2.word &&
+        this.question.meaning != this.answer1.meaning &&
+        this.question.meaning != this.answer2.meaning
       ) {
         break;
       }
     }
   }
 
-  checkNull() {
+  /*checkNull() {
     while (true) {
       if (
         this.question.word == null ||
@@ -88,7 +108,7 @@ export class GuestGameComponent implements OnInit {
         break;
       }
     }
-  }
+  }*/
 
   setCheckClick1() {
     this.checkClick1 = true;
